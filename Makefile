@@ -1,13 +1,13 @@
 MODULE_NAME := rwProcMem37
 RESMAN_CORE_OBJS:=sys.o
 RESMAN_GLUE_OBJS:=
-ifneq ($(KERNELRELEASE),)    
+ifneq ($(KERNELRELEASE),)
 	$(MODULE_NAME)-objs:=$(RESMAN_GLUE_OBJS) $(RESMAN_CORE_OBJS)
 	obj-m := rwProcMem37.o
 else
-	KDIR := /cepheus-q-oss/out
+	KDIR := /home/chaod/Desktop/android-kernel-pixel4/private/msm-google
 all:
 	make -C $(KDIR) M=$(PWD) ARCH=arm64 SUBARCH=arm64 modules
-clean:    
+clean:
 	rm -f *.ko *.o *.mod.o *.mod.c *.symvers *.order
-endif    
+endif

@@ -347,7 +347,7 @@ MY_STATIC inline size_t read_ram_physical_addr(size_t phy_addr, char* lpBuf, boo
 			printk_debug(KERN_INFO "Error in x_xlate_dev_mem_ptr:0x%llx\n", phy_addr);
 			break;
 		}
-		probe = x_probe_kernel_read(bounce, ptr, sz);
+		probe = probe_kernel_read(bounce, ptr, sz);
 		unxlate_dev_mem_ptr(phy_addr, ptr);
 		if (probe) {
 			break;
